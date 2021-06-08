@@ -26,6 +26,6 @@ MIT License. See [LICENSE](LICENSE) for details.
 [readme-url]: https://github.com/rafaelgaribotti/travis-identifier/blob/main/README.md
 [license-url]: https://github.com/rafaelgaribotti/travis-identifier/blob/main/LICENSE
 [license-img]: https://img.shields.io/github/license/rsp/travis-hello-modern-cpp.svg
-[travis-url]: https://www.travis-ci.com/rafaelgaribotti/travis-identifier
-[travis-img]: https://www.travis-ci.com/rafaelgaribotti/travis-identifier.svg?branch=master
-[github-follow-url]: https://github.com/rafaelgaribotti
+[travis-url]: https://www.travis-ci.com/leonardopahim/testes_travisci
+[travis-img]: https://www.travis-ci.com/leonardopahim/testes_travisci.svg?branch=master
+[github-follow-url]: https://github.com/leonardopahim/
