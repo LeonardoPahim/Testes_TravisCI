@@ -4,6 +4,9 @@ sudo: false
 language: c
 compiler:
   - gcc
+  before_install:
+  - sudo apt-get -y install cppcheck
+  - sudo apt-get -y install valgrind  
 addons:
   apt:
     sources:
