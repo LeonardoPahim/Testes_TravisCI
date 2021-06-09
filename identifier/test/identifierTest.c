@@ -15,12 +15,6 @@ TEST_TEAR_DOWN(identifier)
 }
 
 //These test should pass
-void InputNormal(void){
-   int result = (system("echo 'abc' | ./src/identifier")) >> 8;
-   //OK
-   TEST_ASSERT_EQUAL_INT(0, result);
-}
-
 void Input1(void){
    int result = (system("echo 'a' | ./src/identifier")) >> 8;
    //OK
