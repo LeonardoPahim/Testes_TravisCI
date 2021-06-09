@@ -63,6 +63,7 @@ all: clean compile run valgrind cppcheck cov runcov
 
 compile:
 	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
+	
 
 run:
 	- ./$(TARGET1) -v
