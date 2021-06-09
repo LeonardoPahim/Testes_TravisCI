@@ -24,9 +24,12 @@
 #include <stdio.h>
 #include "identifier.h"
 
+
+
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
+
 extern void Input1(void);
 extern void Input2(void);
 extern void Input3(void);
@@ -41,6 +44,10 @@ extern void NumeroMinCh(void);
 extern void StringVazio(void);
 extern void CaracterEspecial(void);
 extern void SomenteNumeros(void);
+
+
+
+
 
 
 
@@ -72,7 +79,6 @@ int main(void)
   RUN_TEST(StringVazio, 103);
   RUN_TEST(CaracterEspecial, 110);
   RUN_TEST(SomenteNumeros, 117);
-
 
 
   return (UnityEnd());

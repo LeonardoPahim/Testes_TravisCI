@@ -74,8 +74,8 @@ clean:
 
 valgrind:
 	#Memcheck
-	- valgrind --leak-check=full ./$(TARGET1) -v
-	- valgrind --leak-check=full --show-leak-kinds=all ./src/identifier.c -v
+	- valgrind --leak-check=full --show-leak-kinds=all ./$(TARGET1) -v
+
 	
 	#Cachegrind
 	#- valgrind --tool=cachegrind ./$(TARGET1) -v
@@ -113,6 +113,7 @@ runcov:
 	- echo 234 | ./cov;
 	- gcov -b identifier.c
 	
+
 
 ci: CFLAGS += -Werror
 ci: compile
