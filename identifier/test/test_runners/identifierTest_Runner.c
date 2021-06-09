@@ -27,7 +27,6 @@
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void IniciaNumero(void);
 extern void Input1(void);
 extern void Input2(void);
 extern void Input3(void);
@@ -59,7 +58,6 @@ int main(void)
 {
   UnityBegin("test/identifierTest.c");
   //Devem passar
-  RUN_TEST(InputNormal, 21);
   RUN_TEST(Input1, 27);
   RUN_TEST(Input2, 33);
   RUN_TEST(Input3, 39);

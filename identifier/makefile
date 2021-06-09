@@ -59,7 +59,7 @@ SRC_FILES1=\
 INC_DIRS=-Isrc -I$(UNITY_ROOT)/src -I$(UNITY_ROOT)/extras/fixture/src
 SYMBOLS=
 
-all: clean compile run
+all: clean compile run valgrind cppcheck cov runcov
 
 compile:
 	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
@@ -69,16 +69,48 @@ run:
 
 clean:
 	$(CLEANUP) $(TARGET1)
-	rm -fr $(ALL) *.o cov* *.dSYM *.gcda *.gcno *.gcov
+	rm -fr $(ALL) *.o cov* *.dSYM *.gcda *.gcno *.gcov cachegrind* callgrind*
 
-identifier: $(ALL)$(TARGET_EXTENSION)
+valgrind:
+	#Memcheck
+	- valgrind --leak-check=full ./$(TARGET1) -v
+	
+	#Cachegrind
+	#- valgrind --tool=cachegrind ./$(TARGET1) -v
+
+	#Callgrind
+	#- valgrind --tool=callgrind ./$(TARGET1) -v
+
+	#Massif
+	#- valgrind --tool=massif ./$(TARGET1) -v
+
+	#Helgrind
+	#- valgrind --tool=helgrind ./$(TARGET1) -v
+
+cppcheck:
+	- cppcheck ./$(TARGET1) -v
+
+
+identifier: ./src/identifier.c
 	$(GCC) $(GCCFLAGS) -o $@ $@.c 
 
-cov: identifier.c
-	$(GCC) $(GCCFLAGS) -fprofile-arcs -ftest-coverage -o $@ identifier.c
+cov: ./src/identifier.c
+	$(GCC) $(GCCFLAGS) -fprofile-arcs -ftest-coverage -o $@ ./src/identifier.c
 
-
-
+runcov: 
+	- echo a | ./cov;
+	- echo ab | ./cov;
+	- echo abc | ./cov;
+	- echo abcd | ./cov;
+	- echo abcde | ./cov;
+	- echo A123e | ./cov;
+	- echo 123e | ./cov;
+	- echo 1 | ./cov;
+	- echo a23elKz | ./cov;
+	- echo a23%el | ./cov;
+	- echo 234 | ./cov;
+	- gcov -b identifier.c
+	
 
 ci: CFLAGS += -Werror
 ci: compile
