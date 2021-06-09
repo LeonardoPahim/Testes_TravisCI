@@ -62,7 +62,7 @@ SYMBOLS=
 all: clean compile run valgrind cppcheck cov runcov
 
 compile:
-	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
+	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) --coverage -o $(TARGET1)
 	
 
 run:
