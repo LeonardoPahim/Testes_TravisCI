@@ -25,6 +25,12 @@ ifeq ($(shell uname -s), Darwin)
 C_COMPILER=clang
 endif
 
+GCCFLAGS = -g -Wall -Wfatal-errors
+ALL = identifier
+GCC = gcc
+
+
+
 UNITY_ROOT=../Unity
 
 CFLAGS=-std=c99
@@ -47,10 +53,9 @@ TARGET1 = $(TARGET_BASE1)$(TARGET_EXTENSION)
 SRC_FILES1=\
   $(UNITY_ROOT)/src/unity.c \
   $(UNITY_ROOT)/extras/fixture/src/unity_fixture.c \
-  src/foo.c \
-  test/TestFoo.c \
-  test/test_runners/TestFoo_Runner.c \
-  test/test_runners/all_tests.c
+  src/identifier.c \
+  test/identifierTest.c \
+  test/test_runners/identifierTest_Runner.c 
 INC_DIRS=-Isrc -I$(UNITY_ROOT)/src -I$(UNITY_ROOT)/extras/fixture/src
 SYMBOLS=
 
@@ -64,6 +69,16 @@ run:
 
 clean:
 	$(CLEANUP) $(TARGET1)
+	rm -fr $(ALL) *.o cov* *.dSYM *.gcda *.gcno *.gcov
+
+identifier: $(ALL)$(TARGET_EXTENSION)
+	$(GCC) $(GCCFLAGS) -o $@ $@.c 
+
+cov: identifier.c
+	$(GCC) $(GCCFLAGS) -fprofile-arcs -ftest-coverage -o $@ identifier.c
+
+
+
 
 ci: CFLAGS += -Werror
 ci: compile

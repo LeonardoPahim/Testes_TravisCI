@@ -1,8 +1,7 @@
 #include "unity.h"
 #include "unity_fixture.h"
 
-TEST_GROUP_RUNNER(Foo)
+TEST_GROUP_RUNNER(identifier)
 {
-  RUN_TEST_CASE(Foo, TestFoo1);
-  RUN_TEST_CASE(Foo, TestFoo2);
+  RUN_TEST_CASE(identifier, Testidentifier1);
 }
