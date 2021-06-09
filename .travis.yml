@@ -4,8 +4,6 @@ sudo: true
 language: c
 compiler:
   - gcc
-  before_install:
-  
 addons:
   apt:
     sources:
