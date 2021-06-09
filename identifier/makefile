@@ -75,6 +75,7 @@ clean:
 valgrind:
 	#Memcheck
 	- valgrind --leak-check=full ./$(TARGET1) -v
+	- valgrind --leak-check=full --show-leak-kinds=all ./src/identifier.c -v
 	
 	#Cachegrind
 	#- valgrind --tool=cachegrind ./$(TARGET1) -v
@@ -89,7 +90,7 @@ valgrind:
 	#- valgrind --tool=helgrind ./$(TARGET1) -v
 
 cppcheck:
-	- cppcheck identifierTest.c -v
+	- cppcheck --enable=all --suppress=missingIncludeSystem ./src/identifier.c
 
 
 identifier: ./src/identifier.c
