@@ -4,8 +4,11 @@ sudo: true
 language: c
 compiler:
   - gcc
+before_install:
+  - sudo apt-get -y install cppcheck valgrind
 addons:
   apt:
+    update: true
     sources:
       - ubuntu-toolchain-r-test
     packages:
