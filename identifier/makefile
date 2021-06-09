@@ -89,7 +89,7 @@ valgrind:
 	#- valgrind --tool=helgrind ./$(TARGET1) -v
 
 cppcheck:
-	- cppcheck ./identifierTest -v
+	- cppcheck identifierTest.c -v
 
 
 identifier: ./src/identifier.c
