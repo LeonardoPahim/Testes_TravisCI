@@ -1,6 +1,6 @@
 # Travis example for Identifier created by Rafael Garibotti
 
-sudo: false
+sudo: true
 language: c
 compiler:
   - gcc
