@@ -28,6 +28,20 @@
 extern void setUp(void);
 extern void tearDown(void);
 extern void IniciaNumero(void);
+extern void Input1(void);
+extern void Input2(void);
+extern void Input3(void);
+extern void Input4(void);
+extern void Input5(void);
+extern void NumeroNoMeio(void);
+
+extern void PrimeiroNumero(void);
+extern void Numero(void);
+extern void NumeroMaxCh(void);
+extern void NumeroMinCh(void);
+extern void StringVazio(void);
+extern void CaracterEspecial(void);
+extern void SomenteNumeros(void);
 
 
 
@@ -44,6 +58,24 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test/identifierTest.c");
-  RUN_TEST(IniciaNumero, 18);
+  //Devem passar
+  RUN_TEST(InputNormal, 21);
+  RUN_TEST(Input1, 27);
+  RUN_TEST(Input2, 33);
+  RUN_TEST(Input3, 39);
+  RUN_TEST(Input4, 45);
+  RUN_TEST(Input5, 51);
+  RUN_TEST(NumeroNoMeio, 64);
+
+  //Devem falhar
+  RUN_TEST(PrimeiroNumero, 76);
+  RUN_TEST(Numero, 82);
+  RUN_TEST(NumeroMaxCh, 89);
+  RUN_TEST(StringVazio, 103);
+  RUN_TEST(CaracterEspecial, 110);
+  RUN_TEST(SomenteNumeros, 117);
+
+
+
   return (UnityEnd());
 }
